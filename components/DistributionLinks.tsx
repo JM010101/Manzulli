@@ -28,18 +28,18 @@ export default function DistributionLinks({ book }: DistributionLinksProps) {
   }
 
   return (
-    <div className="mt-8 pt-8 border-t border-gray-200">
-      <h3 className="font-serif text-xl mb-4">Also available from:</h3>
-      <ul className="flex flex-wrap gap-4">
+    <div className="pt-8 border-t border-gray-200">
+      <h3 className="font-serif text-lg md:text-xl mb-6 text-gray-600">Also available from:</h3>
+      <ul className="flex flex-wrap gap-6">
         {links.map((link) => (
           <li key={link.name}>
             <a
               href={link.url}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 font-sans text-sm hover:text-gray-600 transition-colors"
+              className="inline-flex items-center gap-3 font-sans text-sm text-gray-700 hover:text-gray-900 transition-colors link-subtle"
             >
-              <span>{link.icon}</span>
+              <span className="text-lg">{link.icon}</span>
               <span>{link.name}</span>
             </a>
           </li>

@@ -10,7 +10,7 @@ export default function Header() {
     <header className="border-b border-gray-200">
       <nav className="container-custom py-6">
         <div className="flex items-center justify-between">
-          <Link href="/" className="text-2xl font-serif text-gray-900 hover:text-gray-600 transition-colors">
+          <Link href="/" className="text-2xl md:text-3xl font-serif text-gray-900 hover:text-gray-600 transition-colors tracking-tight">
             Manzulli
           </Link>
           

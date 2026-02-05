@@ -49,9 +49,9 @@ export default function StripeButton({ book }: StripeButtonProps) {
     <button
       onClick={handlePurchase}
       disabled={loading}
-      className="px-8 py-4 bg-gray-900 text-white font-sans text-sm tracking-wide hover:bg-gray-700 disabled:opacity-50 disabled:cursor-not-allowed transition-colors"
+      className="btn-primary"
     >
-      {loading ? "Processing..." : `Purchase eBook - $${book.price.toFixed(2)}`}
+      {loading ? "Processing..." : `Purchase eBook — $${book.price.toFixed(2)}`}
     </button>
   );
 }

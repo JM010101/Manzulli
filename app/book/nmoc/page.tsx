@@ -28,25 +28,29 @@ export default async function NMOCPage({
   return (
     <div className="section-spacing">
       <div className="container-custom">
-        <div className="max-w-4xl mx-auto">
+        <div className="max-w-5xl mx-auto">
           <CheckoutMessage success={params.success} canceled={params.canceled} />
           
           {/* Book Cover and Title */}
-          <div className="flex flex-col md:flex-row gap-12 mb-16">
-            <div className="flex-shrink-0">
-              <div className="w-64 h-96 bg-gray-200 rounded-sm shadow-lg">
+          <div className="flex flex-col md:flex-row gap-16 mb-20">
+            <div className="flex-shrink-0 w-full md:w-80">
+              <div className="relative w-full aspect-[2/3] bg-gradient-to-br from-gray-100 to-gray-200 rounded-sm shadow-2xl overflow-hidden">
                 {/* Placeholder for book cover */}
-                <div className="w-full h-full flex items-center justify-center text-gray-400">
-                  <span className="text-sm">Book Cover</span>
+                <div className="absolute inset-0 flex items-center justify-center">
+                  <div className="text-center px-4">
+                    <span className="text-xs text-gray-400 font-sans uppercase tracking-wider">Book Cover</span>
+                  </div>
                 </div>
               </div>
             </div>
-            <div className="flex-1">
-              <h1 className="font-serif text-4xl md:text-5xl mb-4">{book.title}</h1>
-              {book.subtitle && (
-                <p className="text-xl text-gray-600 mb-8">{book.subtitle}</p>
-              )}
-              <div className="mb-8">
+            <div className="flex-1 space-y-8">
+              <div>
+                <h1 className="font-serif text-4xl md:text-5xl lg:text-6xl mb-4 text-balance">{book.title}</h1>
+                {book.subtitle && (
+                  <p className="text-xl md:text-2xl text-gray-600 mb-8 font-sans">{book.subtitle}</p>
+                )}
+              </div>
+              <div className="pt-4">
                 <StripeButton book={book} />
               </div>
               <DistributionLinks book={book} />
@@ -54,30 +58,30 @@ export default async function NMOCPage({
           </div>
 
           {/* Description */}
-          <div className="prose prose-lg max-w-none mb-12">
-            <h2 className="font-serif text-3xl mb-6">About the Book</h2>
-            <p className="text-lg leading-relaxed text-gray-800 mb-6">
+          <div className="max-w-3xl mb-16 space-y-6">
+            <h2 className="font-serif text-3xl md:text-4xl mb-8">About the Book</h2>
+            <p className="text-lg md:text-xl leading-relaxed text-gray-700">
               {book.description}
             </p>
           </div>
 
           {/* Excerpt */}
           {book.excerpt && (
-            <div className="border-l-4 border-gray-300 pl-8 py-6 mb-12 bg-gray-50">
-              <h3 className="font-serif text-2xl mb-4">Excerpt</h3>
-              <p className="text-lg leading-relaxed text-gray-700 italic">
+            <div className="border-l-4 border-gray-300 pl-10 py-10 mb-16 bg-gray-50/50 max-w-3xl">
+              <h3 className="font-serif text-2xl md:text-3xl mb-6">Excerpt</h3>
+              <p className="text-lg md:text-xl leading-relaxed text-gray-700 italic">
                 {book.excerpt}
               </p>
             </div>
           )}
 
           {/* Purchase Section */}
-          <div className="border-t border-gray-200 pt-12">
-            <h2 className="font-serif text-3xl mb-6">Purchase Options</h2>
-            <div className="space-y-6">
+          <div className="border-t border-gray-200 pt-16 mt-20">
+            <h2 className="font-serif text-3xl md:text-4xl mb-10">Purchase Options</h2>
+            <div className="space-y-10 max-w-2xl">
               <div>
-                <h3 className="font-serif text-xl mb-4">Direct Purchase</h3>
-                <p className="text-gray-700 mb-4">
+                <h3 className="font-serif text-xl md:text-2xl mb-4">Direct Purchase</h3>
+                <p className="text-lg text-gray-700 mb-6 leading-relaxed">
                   Purchase the eBook directly from this site. You'll receive instant access after payment.
                 </p>
                 <StripeButton book={book} />
